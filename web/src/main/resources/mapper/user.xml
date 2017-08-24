@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="web.com.base.dao.UserDao">
+
+    <resultMap type="web.com.base.entity.User" id="userMap">
+        <id property="id" column="id" />
+        <result property="name" column="user_name" />
+        <result property="password" column="password" />
+        <result property="phone" column="phone" />
+        <result property="age" column="age" />
+    </resultMap>
+    
+    <select id="findById" resultMap="userMap">
+        SELECT id,user_name,phone,age
+        FROM user_t a
+        WHERE a.id = #{id}
+    </select>
+    
+    <select id="findByPhone" resultMap="userMap">
+        SELECT id,user_name,phone,age
+        FROM user_t a
+        WHERE a.phone = #{phone}
+    </select>
+    
+    <select id="findByName" resultMap="userMap">
+        SELECT id,user_name,phone,age
+        FROM user_t a
+        WHERE a.user_name = #{name}
+    </select>
+    
+</mapper>

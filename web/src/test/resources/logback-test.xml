@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+	<!-- ch.qos.logback.core.ConsoleAppender 控制台输出 -->
+	<appender name="test" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<Pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+			</Pattern>
+		</encoder>
+	</appender>
+	
+	<!-- ch.qos.logback.core.FileAppender 文件输出 -->
+    <appender name="test1" class="ch.qos.logback.core.FileAppender">
+        <file>debug.log</file>
+        <encoder>
+            <Pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+            </Pattern>
+        </encoder>
+    </appender>
+
+	<!-- 日志级别 -->
+	<root level="DEBUG">
+		<appender-ref ref="test" />
+		<appender-ref ref="test1" />
+	</root>
+   
+    <logger name="web.com.test.base" level="INFO" appender-ref="test"/>
+ 
+</configuration>
